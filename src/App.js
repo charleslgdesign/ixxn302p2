@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import index from './index.js'
+import Translation from './translation.js'
+import engooSite from './engoo.png'
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Link } from 'react-scroll'
+
+
+  function App() {
+
+    const [show,setShow] = useState()
+
+    return (
+        <>
+        <div className='engoo-site'>
+            <img src={engooSite} className='engoo-img' />
+            <div id='translation'>{show?<Translation/>:null}</div>
+
+            <Link activeClass='active' to='translation' 
+            smooth={true} spy={true}><button className='translation-flashcards' 
+            onClick={()=>setShow(true)}>Article Flashcards</button></Link>
+             
+        </div>
+
+  
+
+</>
+
+
+
+    )
 }
 
-export default App;
+export default App
+
